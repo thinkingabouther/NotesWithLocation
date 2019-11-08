@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/arsenyneustroev/Desktop/Programming/xcode/NotesWithLocation/NotesWithLocation/Model">
+   </FileRef>
+   <FileRef
       location = "self:NotesWithLocation.xcodeproj">
    </FileRef>
 </Workspace>

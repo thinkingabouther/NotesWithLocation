@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D422B5FD236CBA3D00966771 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5F5236CBA3D00966771 /* Folder+CoreDataClass.swift */; };
+		D422B5FE236CBA3D00966771 /* Folder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5F6236CBA3D00966771 /* Folder+CoreDataProperties.swift */; };
+		D422B5FF236CBA3D00966771 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5F7236CBA3D00966771 /* Location+CoreDataClass.swift */; };
+		D422B600236CBA3D00966771 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5F8236CBA3D00966771 /* Location+CoreDataProperties.swift */; };
+		D422B601236CBA3D00966771 /* NoteImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5F9236CBA3D00966771 /* NoteImage+CoreDataClass.swift */; };
+		D422B602236CBA3D00966771 /* NoteImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5FA236CBA3D00966771 /* NoteImage+CoreDataProperties.swift */; };
+		D422B603236CBA3D00966771 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5FB236CBA3D00966771 /* Note+CoreDataClass.swift */; };
+		D422B604236CBA3D00966771 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5FC236CBA3D00966771 /* Note+CoreDataProperties.swift */; };
+		D422B607236CBBD700966771 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B606236CBBD700966771 /* CoreDataManager.swift */; };
 		D4CB17FA236CAE2F00E7A744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CB17F9236CAE2F00E7A744 /* AppDelegate.swift */; };
 		D4CB17FC236CAE2F00E7A744 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CB17FB236CAE2F00E7A744 /* SceneDelegate.swift */; };
 		D4CB1801236CAE2F00E7A744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CB17FF236CAE2F00E7A744 /* Main.storyboard */; };
@@ -16,6 +25,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D422B5F5236CBA3D00966771 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D422B5F6236CBA3D00966771 /* Folder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D422B5F7236CBA3D00966771 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D422B5F8236CBA3D00966771 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D422B5F9236CBA3D00966771 /* NoteImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D422B5FA236CBA3D00966771 /* NoteImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D422B5FB236CBA3D00966771 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D422B5FC236CBA3D00966771 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D422B606236CBBD700966771 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D4CB17F6236CAE2F00E7A744 /* NotesWithLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesWithLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CB17F9236CAE2F00E7A744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4CB17FB236CAE2F00E7A744 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +55,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D422B605236CBA4C00966771 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D422B5F5236CBA3D00966771 /* Folder+CoreDataClass.swift */,
+				D422B5F6236CBA3D00966771 /* Folder+CoreDataProperties.swift */,
+				D422B5F7236CBA3D00966771 /* Location+CoreDataClass.swift */,
+				D422B5F8236CBA3D00966771 /* Location+CoreDataProperties.swift */,
+				D422B5F9236CBA3D00966771 /* NoteImage+CoreDataClass.swift */,
+				D422B5FA236CBA3D00966771 /* NoteImage+CoreDataProperties.swift */,
+				D422B5FB236CBA3D00966771 /* Note+CoreDataClass.swift */,
+				D422B5FC236CBA3D00966771 /* Note+CoreDataProperties.swift */,
+				D4CB1802236CAE2F00E7A744 /* NotesWithLocation.xcdatamodeld */,
+				D422B606236CBBD700966771 /* CoreDataManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D4CB17ED236CAE2F00E7A744 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +91,13 @@
 		D4CB17F8236CAE2F00E7A744 /* NotesWithLocation */ = {
 			isa = PBXGroup;
 			children = (
+				D422B605236CBA4C00966771 /* Model */,
 				D4CB17F9236CAE2F00E7A744 /* AppDelegate.swift */,
 				D4CB17FB236CAE2F00E7A744 /* SceneDelegate.swift */,
 				D4CB17FF236CAE2F00E7A744 /* Main.storyboard */,
 				D4CB1805236CAE3000E7A744 /* Assets.xcassets */,
 				D4CB1807236CAE3000E7A744 /* LaunchScreen.storyboard */,
 				D4CB180A236CAE3000E7A744 /* Info.plist */,
-				D4CB1802236CAE2F00E7A744 /* NotesWithLocation.xcdatamodeld */,
 			);
 			path = NotesWithLocation;
 			sourceTree = "<group>";
@@ -138,8 +173,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D422B604236CBA3D00966771 /* Note+CoreDataProperties.swift in Sources */,
+				D422B5FF236CBA3D00966771 /* Location+CoreDataClass.swift in Sources */,
+				D422B600236CBA3D00966771 /* Location+CoreDataProperties.swift in Sources */,
 				D4CB1804236CAE2F00E7A744 /* NotesWithLocation.xcdatamodeld in Sources */,
+				D422B5FD236CBA3D00966771 /* Folder+CoreDataClass.swift in Sources */,
 				D4CB17FA236CAE2F00E7A744 /* AppDelegate.swift in Sources */,
+				D422B607236CBBD700966771 /* CoreDataManager.swift in Sources */,
+				D422B602236CBA3D00966771 /* NoteImage+CoreDataProperties.swift in Sources */,
+				D422B601236CBA3D00966771 /* NoteImage+CoreDataClass.swift in Sources */,
+				D422B603236CBA3D00966771 /* Note+CoreDataClass.swift in Sources */,
+				D422B5FE236CBA3D00966771 /* Folder+CoreDataProperties.swift in Sources */,
 				D4CB17FC236CAE2F00E7A744 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
