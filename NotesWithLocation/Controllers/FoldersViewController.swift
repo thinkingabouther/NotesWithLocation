@@ -41,6 +41,7 @@ class FoldersViewController: UITableViewController {
             let newFolderName = alertController.textFields![0].text
             if let newFolderName = newFolderName{
                 _ = Folder.NewFolder(name: newFolderName)
+                CoreDataManager.sharedInstance.saveContext()
                 self.tableView.reloadData()
             }
         }
@@ -71,18 +72,28 @@ class FoldersViewController: UITableViewController {
         return true
     }
     */
-
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let currFolder = CoreDataManager.sharedInstance.folders[indexPath.row]
+            CoreDataManager.sharedInstance.managedObjectContext.delete(currFolder)
+            CoreDataManager.sharedInstance.saveContext()
+            tableView.deleteRows(at: [indexPath], with: .left)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "GoToCurrentFolder", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToCurrentFolder"{
+            let selectedFolder = CoreDataManager.sharedInstance.folders[tableView.indexPathForSelectedRow!.row]
+            (segue.destination as! SingleFolderViewController).currentFolder = selectedFolder
+        }
+    }
 
     /*
     // Override to support rearranging the table view.

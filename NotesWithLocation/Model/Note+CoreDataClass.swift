@@ -14,6 +14,13 @@ import UIKit
 @objc(Note)
 public class Note: NSManagedObject {
     
+    var dateModifiedString : String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        return dateFormatter.string(from: self.dateModified!)
+    }
+    
     class func NewNote(noteName : String) -> Note {
         let note = Note(context: CoreDataManager.sharedInstance.managedObjectContext)
         note.name = noteName

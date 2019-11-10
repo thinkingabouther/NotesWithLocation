@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D41D59B8237867D000FF602D /* FoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D59B7237867D000FF602D /* FoldersViewController.swift */; };
+		D41D59BB2378921A00FF602D /* SingleFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D59BA2378921A00FF602D /* SingleFolderViewController.swift */; };
 		D422B5FD236CBA3D00966771 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5F5236CBA3D00966771 /* Folder+CoreDataClass.swift */; };
 		D422B5FE236CBA3D00966771 /* Folder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5F6236CBA3D00966771 /* Folder+CoreDataProperties.swift */; };
 		D422B5FF236CBA3D00966771 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422B5F7236CBA3D00966771 /* Location+CoreDataClass.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		D41D59B7237867D000FF602D /* FoldersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersViewController.swift; sourceTree = "<group>"; };
+		D41D59BA2378921A00FF602D /* SingleFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleFolderViewController.swift; sourceTree = "<group>"; };
 		D422B5F5236CBA3D00966771 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D422B5F6236CBA3D00966771 /* Folder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D422B5F7236CBA3D00966771 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -61,8 +63,20 @@
 			isa = PBXGroup;
 			children = (
 				D41D59B7237867D000FF602D /* FoldersViewController.swift */,
+				D41D59BA2378921A00FF602D /* SingleFolderViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D41D59B92378768600FF602D /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				D4CB17F9236CAE2F00E7A744 /* AppDelegate.swift */,
+				D4CB17FB236CAE2F00E7A744 /* SceneDelegate.swift */,
+				D4CB1807236CAE3000E7A744 /* LaunchScreen.storyboard */,
+				D4CB1805236CAE3000E7A744 /* Assets.xcassets */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 		D422B605236CBA4C00966771 /* Model */ = {
@@ -101,14 +115,11 @@
 		D4CB17F8236CAE2F00E7A744 /* NotesWithLocation */ = {
 			isa = PBXGroup;
 			children = (
+				D4CB180A236CAE3000E7A744 /* Info.plist */,
+				D41D59B92378768600FF602D /* Supporting files */,
 				D41D59B6237867AC00FF602D /* Controllers */,
 				D422B605236CBA4C00966771 /* Model */,
-				D4CB17F9236CAE2F00E7A744 /* AppDelegate.swift */,
-				D4CB17FB236CAE2F00E7A744 /* SceneDelegate.swift */,
 				D4CB17FF236CAE2F00E7A744 /* Main.storyboard */,
-				D4CB1805236CAE3000E7A744 /* Assets.xcassets */,
-				D4CB1807236CAE3000E7A744 /* LaunchScreen.storyboard */,
-				D4CB180A236CAE3000E7A744 /* Info.plist */,
 			);
 			path = NotesWithLocation;
 			sourceTree = "<group>";
@@ -184,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41D59BB2378921A00FF602D /* SingleFolderViewController.swift in Sources */,
 				D422B604236CBA3D00966771 /* Note+CoreDataProperties.swift in Sources */,
 				D422B5FF236CBA3D00966771 /* Location+CoreDataClass.swift in Sources */,
 				D422B600236CBA3D00966771 /* Location+CoreDataProperties.swift in Sources */,

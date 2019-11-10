@@ -15,10 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let folder = Folder.NewFolder(name: "a")
-        folder.AddNote(noteName: "newNote")
-        print(CoreDataManager.sharedInstance.folders)
-        saveContext()
+    
         return true
     }
 
