@@ -25,6 +25,18 @@ class CoreDataManager: NSObject {
         
     }
     
+    var notes: [Note] {
+        let request = NSFetchRequest<Note>(entityName: "Note")
+        let sortDescriptor = NSSortDescriptor(key: "dateModified", ascending: false)
+        request.sortDescriptors = [sortDescriptor]
+        let array = try? CoreDataManager.sharedInstance.managedObjectContext.fetch(request)
+        if array != nil{
+            return array!
+        }
+        return []
+        
+    }
+    
     var managedObjectContext : NSManagedObjectContext{
         return persistentContainer.viewContext
     }

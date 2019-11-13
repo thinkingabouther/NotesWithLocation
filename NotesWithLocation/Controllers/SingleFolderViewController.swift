@@ -12,8 +12,21 @@ class SingleFolderViewController: UITableViewController {
 
     var currentFolder : Folder?
     
+    var currentNotes : [Note] {
+        if let currentFolder = currentFolder{
+            return currentFolder.notesSorted
+        }
+        return CoreDataManager.sharedInstance.notes
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let currentFolder = currentFolder{
+            navigationItem.title = currentFolder.name
+        }
+        else{
+            navigationItem.title = "All notes"
+        }
     }
 
     // MARK: - Table view data source
@@ -23,14 +36,13 @@ class SingleFolderViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentFolder!.notes!.count
+        return currentNotes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
-
-        let currentNote = currentFolder!.notesSorted[indexPath.row]
+        let currentNote = currentNotes[indexPath.row]
         cell.textLabel?.text = currentNote.name
         cell.detailTextLabel?.text = currentNote.dateModifiedString
         return cell
