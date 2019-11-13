@@ -21,10 +21,12 @@ public class Note: NSManagedObject {
         return dateFormatter.string(from: self.dateModified!)
     }
     
-    class func NewNote(noteName : String) -> Note {
+    class func NewNote(noteName : String, inFolder : Folder?) -> Note {
         let note = Note(context: CoreDataManager.sharedInstance.managedObjectContext)
         note.name = noteName
         note.dateModified = Date()
+        note.folder = inFolder
+
         return note
     }
     

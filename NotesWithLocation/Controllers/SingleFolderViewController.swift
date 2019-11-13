@@ -11,7 +11,19 @@ import UIKit
 class SingleFolderViewController: UITableViewController {
 
     var currentFolder : Folder?
+    var newNote : Note?
     
+    
+    @IBAction func AddButtonPushed(_ sender: Any) {
+        newNote = Note.NewNote(noteName: "newName", inFolder: currentFolder)
+        performSegue(withIdentifier: "GoToNote", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToNote"{
+            (segue.destination as! SingleNoteVIewController).currentNote = newNote
+        }
+    }
     var currentNotes : [Note] {
         if let currentFolder = currentFolder{
             return currentFolder.notesSorted
@@ -27,6 +39,10 @@ class SingleFolderViewController: UITableViewController {
         else{
             navigationItem.title = "All notes"
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
