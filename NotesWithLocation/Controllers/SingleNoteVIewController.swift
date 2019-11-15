@@ -18,6 +18,23 @@ class SingleNoteVIewController: UITableViewController {
         noteTextDescriptionView.text = currentNote?.textDescription
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if noteNameField?.text == "" || noteTextDescriptionView?.text == "" {
+            CoreDataManager.sharedInstance.managedObjectContext.delete(currentNote!)
+            CoreDataManager.sharedInstance.saveContext()
+            return
+        }
+        
+        if currentNote?.name != noteNameField.text || currentNote?.description != noteTextDescriptionView.text{
+            currentNote?.dateModified = Date()
+        }
+        
+        currentNote?.name = noteNameField.text
+        currentNote?.textDescription = noteTextDescriptionView.text
+        
+        CoreDataManager.sharedInstance.saveContext()
+    }
+    
     @IBOutlet weak var noteImageView: UIImageView!
     @IBOutlet weak var noteTextDescriptionView: UITextView!
     @IBOutlet weak var noteNameField: UITextField!

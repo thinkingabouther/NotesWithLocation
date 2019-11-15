@@ -11,17 +11,17 @@ import UIKit
 class SingleFolderViewController: UITableViewController {
 
     var currentFolder : Folder?
-    var newNote : Note?
+    var selectedNote : Note?
     
     
     @IBAction func AddButtonPushed(_ sender: Any) {
-        newNote = Note.NewNote(noteName: "newName", inFolder: currentFolder)
+        selectedNote = Note.NewNote(noteName: "newName", inFolder: currentFolder)
         performSegue(withIdentifier: "GoToNote", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToNote"{
-            (segue.destination as! SingleNoteVIewController).currentNote = newNote
+            (segue.destination as! SingleNoteVIewController).currentNote = selectedNote
         }
     }
     var currentNotes : [Note] {
@@ -62,6 +62,12 @@ class SingleFolderViewController: UITableViewController {
         cell.textLabel?.text = currentNote.name
         cell.detailTextLabel?.text = currentNote.dateModifiedString
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let noteInCell = currentNotes[indexPath.row]
+        selectedNote = noteInCell
+        performSegue(withIdentifier: "GoToNote", sender: self)
     }
     
 
