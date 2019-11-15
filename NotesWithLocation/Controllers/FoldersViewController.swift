@@ -12,16 +12,12 @@ class FoldersViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
-
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -40,7 +36,7 @@ class FoldersViewController: UITableViewController {
         let alertActionCreate = UIAlertAction(title: "Create", style: UIAlertAction.Style.default) { (alert) in
             let newFolderName = alertController.textFields![0].text
             if let newFolderName = newFolderName{
-                _ = Folder.NewFolder(name: newFolderName)
+                _ = Folder.NewFolder(name: newFolderName.uppercased())
                 CoreDataManager.sharedInstance.saveContext()
                 self.tableView.reloadData()
             }
@@ -61,6 +57,7 @@ class FoldersViewController: UITableViewController {
 
         let folderForCurrentCell = CoreDataManager.sharedInstance.folders[indexPath.row]
         cell.textLabel?.text = folderForCurrentCell.name
+        cell.detailTextLabel?.text =  "\(folderForCurrentCell.notes!.count) item(-s)"
         return cell
     }
     
@@ -83,17 +80,6 @@ class FoldersViewController: UITableViewController {
         } else if editingStyle == .insert {
         }
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "GoToCurrentFolder", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToCurrentFolder"{
-            let selectedFolder = CoreDataManager.sharedInstance.folders[tableView.indexPathForSelectedRow!.row]
-            (segue.destination as! SingleFolderViewController).currentFolder = selectedFolder
-        }
-    }
 
     /*
     // Override to support rearranging the table view.
@@ -110,14 +96,19 @@ class FoldersViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "GoToCurrentFolder", sender: self)
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToCurrentFolder"{
+            let selectedFolder = CoreDataManager.sharedInstance.folders[tableView.indexPathForSelectedRow!.row]
+            (segue.destination as! SingleFolderViewController).currentFolder = selectedFolder
+        }
+    }
 
 }

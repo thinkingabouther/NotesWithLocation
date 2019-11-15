@@ -14,6 +14,41 @@ import UIKit
 @objc(Note)
 public class Note: NSManagedObject {
     
+    var actualBigImage : UIImage? {
+        set{
+            if newValue == nil { // deteting an image
+                if self.image != nil{
+                    CoreDataManager.sharedInstance.managedObjectContext.delete(self.image!)
+                }
+                self.imageSmall = nil
+            }
+            else{ // inserting new image
+                if self.image == nil{ // if object is new to database
+                    self.image = NoteImage(context: CoreDataManager.sharedInstance.managedObjectContext)
+                }
+                self.image?.imageBig = newValue?.jpegData(compressionQuality: 1)
+                self.imageSmall = newValue?.jpegData(compressionQuality: 0.05)
+            }
+            dateModified = Date()
+        }
+        get{
+            if self.image != nil && self.image?.imageBig != nil{
+                return UIImage(data: self.image!.imageBig!)
+            }
+            return nil
+            
+        }
+    }
+    
+    var actualSmallImage : UIImage?{
+        get {
+            if self.imageSmall != nil{
+                return UIImage(data: self.imageSmall!)
+            }
+            return nil
+        }
+    }
+    
     var dateModifiedString : String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium

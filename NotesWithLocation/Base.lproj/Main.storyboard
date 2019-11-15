@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FolderCell" textLabel="RFH-HT-L4O" rowHeight="63" style="IBUITableViewCellStyleDefault" id="PcD-7J-1MS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FolderCell" textLabel="RFH-HT-L4O" detailTextLabel="7Xm-fF-0lb" rowHeight="63" style="IBUITableViewCellStyleSubtitle" id="PcD-7J-1MS">
                                 <rect key="frame" x="0.0" y="28" width="414" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PcD-7J-1MS" id="wFT-y3-07Y">
@@ -43,9 +43,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RFH-HT-L4O">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="63"/>
+                                            <rect key="frame" x="20" y="10" width="45.5" height="29"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Xm-fF-0lb">
+                                            <rect key="frame" x="20" y="39" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -122,7 +129,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="xii-2n-UVg" kind="show" identifier="GoToNote" id="feE-S6-wtp"/>
+                        <segue destination="xii-2n-UVg" kind="push" identifier="GoToNote" id="feE-S6-wtp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtM-W0-v75" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -374,7 +381,9 @@
                             <outlet property="delegate" destination="xii-2n-UVg" id="ZJO-bq-1M9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Rzb-KC-1Gn"/>
+                    <navigationItem key="navigationItem" id="Rzb-KC-1Gn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Izl-96-j1s"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="noteImageView" destination="VAC-1S-ySH" id="VvY-hf-RnR"/>
                         <outlet property="noteNameField" destination="Glx-Jl-vud" id="lYh-nD-CBG"/>
@@ -383,10 +392,10 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ho-04-YLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3400.0000000000005" y="-412.5"/>
+            <point key="canvasLocation" x="3299" y="-402"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TDS-5y-d0Q"/>
+        <segue reference="feE-S6-wtp"/>
     </inferredMetricsTieBreakers>
 </document>

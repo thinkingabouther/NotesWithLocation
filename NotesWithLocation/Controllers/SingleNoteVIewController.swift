@@ -11,16 +11,21 @@ import UIKit
 class SingleNoteVIewController: UITableViewController {
 
     var currentNote : Note?
-    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = currentNote?.name
         noteNameField.text = currentNote?.name
         noteTextDescriptionView.text = currentNote?.textDescription
+        noteImageView.image = currentNote?.actualBigImage
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if noteNameField?.text == "" || noteTextDescriptionView?.text == "" {
+        saveCurrentNote()
+    }
+    
+    func saveCurrentNote() {
+        if noteNameField?.text == "" && noteTextDescriptionView?.text == "" && noteImageView.image == nil{
             CoreDataManager.sharedInstance.managedObjectContext.delete(currentNote!)
             CoreDataManager.sharedInstance.saveContext()
             return
@@ -32,25 +37,27 @@ class SingleNoteVIewController: UITableViewController {
         
         currentNote?.name = noteNameField.text
         currentNote?.textDescription = noteTextDescriptionView.text
+        currentNote?.actualBigImage = noteImageView.image
         
         CoreDataManager.sharedInstance.saveContext()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 && indexPath.section == 0{
+            let imagePicker = UIImagePickerController()
             let alertController = UIAlertController(title: "Image for note", message: "", preferredStyle: UIAlertController.Style.actionSheet)
             
             let cameraAction = UIAlertAction(title: "Make a photo", style: .default) { (UIAlertAction) in
-                self.imagePicker.sourceType = .camera
-                self.imagePicker.delegate = self
-                self.present(self.imagePicker, animated: true, completion: nil)
+                imagePicker.sourceType = .camera
+                imagePicker.delegate = self
+                self.present(imagePicker, animated: true, completion: nil)
             }
             alertController.addAction(cameraAction)
             
             let photoGalleryAction = UIAlertAction(title: "Select from gallery", style: .default) { (UIAlertAction) in
-                self.imagePicker.sourceType = .savedPhotosAlbum
-                self.imagePicker.delegate = self
-                self.present(self.imagePicker, animated: true, completion: nil)
+                imagePicker.sourceType = .savedPhotosAlbum
+                imagePicker.delegate = self
+                self.present(imagePicker, animated: true, completion: nil)
             }
             alertController.addAction(photoGalleryAction)
             if (self.noteImageView.image != nil){
